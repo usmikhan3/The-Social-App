@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "753827161162",
+    "project_id": "the-social-46312",
+    "storage_bucket": "the-social-46312.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753827161162:android:ed96a56ebbec30891bf2b3",
+        "android_client_info": {
+          "package_name": "com.appsbymuk.social_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753827161162-069qjanaaafgrvuc99bcp21uemk4abj5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appsbymuk.social_app",
+            "certificate_hash": "b4d732684667e07de5c78db35a1a96069510f688"
+          }
+        },
+        {
+          "client_id": "753827161162-orit3gg4ic4ooejtcv7m4stvvcukg93t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhkFr6zHdWA0Q28CUWdTzmHVQRbJnqrPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "753827161162-orit3gg4ic4ooejtcv7m4stvvcukg93t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
