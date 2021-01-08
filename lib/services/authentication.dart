@@ -26,7 +26,7 @@ class Authentication extends ChangeNotifier {
 
     User user = userCredential.user;
     userUid = user.uid;
-    print(userUid);
+    print("created account: $userUid" );
     notifyListeners();
   }
   Future logOutEmail() async{

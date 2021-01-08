@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:social_app/constants/Constantcolors.dart';
+import 'package:social_app/helpers/landingUtils.dart';
 import 'package:social_app/screens/homePage.dart';
 import 'package:social_app/services/authentication.dart';
 import 'package:social_app/services/landingServices.dart';
@@ -170,14 +171,16 @@ class LandingHelpers with ChangeNotifier {
                     color: constantColors.whiteColor,
                   ),
                 ),
-                Provider.of<LandingService>(context,listen: false).passwordLessSignIn(context),
+                Provider.of<LandingService>(context, listen: false)
+                    .passwordLessSignIn(context),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     MaterialButton(
                       color: constantColors.blueColor,
                       onPressed: () {
-                        Provider.of<LandingService>(context,listen: false).loginSheet(context);
+                        Provider.of<LandingService>(context, listen: false)
+                            .loginSheet(context);
                       },
                       child: Text(
                         "Log in",
@@ -190,7 +193,8 @@ class LandingHelpers with ChangeNotifier {
                     MaterialButton(
                       color: constantColors.redColor,
                       onPressed: () {
-                        Provider.of<LandingService>(context, listen: false).signUpSheet(context);
+                        Provider.of<LandingUtils>(context, listen: false)
+                            .selectAvatarOptionsSheet(context);
                       },
                       child: Text(
                         "Sign up",

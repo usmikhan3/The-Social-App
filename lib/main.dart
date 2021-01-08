@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:social_app/constants/Constantcolors.dart';
 import 'package:social_app/helpers/landingHelpers.dart';
+import 'package:social_app/helpers/landingUtils.dart';
 import 'package:social_app/screens/landingPage.dart';
 import 'package:social_app/screens/splashScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:social_app/services/authentication.dart';
+import 'package:social_app/services/firebaseOperations.dart';
 import 'package:social_app/services/landingServices.dart';
 
 void main() async{
@@ -24,7 +26,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_)=>LandingHelpers()),
         ChangeNotifierProvider(create: (_)=>Authentication()),
-        ChangeNotifierProvider(create: (_)=>LandingService())
+        ChangeNotifierProvider(create: (_)=>LandingService()),
+        ChangeNotifierProvider(create: (_)=>FirebaseOperations()),
+        ChangeNotifierProvider(create: (_)=>LandingUtils()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
