@@ -71,6 +71,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
+  credit_card:
+    dependency: "direct main"
+    description:
+      name: credit_card
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.8"
   crypto:
     dependency: transitive
     description:
@@ -85,6 +92,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  custom_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: custom_navigation_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.7.0"
   eva_icons_flutter:
     dependency: "direct main"
     description:
