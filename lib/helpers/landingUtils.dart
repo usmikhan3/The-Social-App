@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:social_app/constants/Constantcolors.dart';
 import 'package:social_app/services/firebaseOperations.dart';
-import 'package:social_app/services/landingServices.dart';
+import 'file:///F:/AndroidStudioProject/social_app/lib/helpers/landingServicesHelpers.dart';
 
 class LandingUtils with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();

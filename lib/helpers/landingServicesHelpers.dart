@@ -89,7 +89,7 @@ class LandingService with ChangeNotifier {
   Widget passwordLessSignIn(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.40,
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery.of(context).size.width ,
       child: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('users').snapshots(),
         builder: (context, snapshot) {
@@ -103,6 +103,7 @@ class LandingService with ChangeNotifier {
                     snapshot.data.docs.map((DocumentSnapshot documentSnapshot) {
               return ListTile(
                 leading: CircleAvatar(
+                  backgroundColor: constantColors.darkColor,
                   backgroundImage:
                       NetworkImage(documentSnapshot.data()['userImage']),
                 ),
@@ -115,14 +116,43 @@ class LandingService with ChangeNotifier {
                 subtitle: Text(documentSnapshot.data()['userEmail'],
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: constantColors.greenColor,
+                        color: constantColors.whiteColor,
                         fontSize: 12.0)),
-                trailing: IconButton(
-                  icon: Icon(
-                    FontAwesomeIcons.trash,
-                    color: constantColors.redColor,
+                trailing: Container(
+                  //color: constantColors.redColor,
+                  width: 150,
+                  height: 50,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      IconButton(
+                        icon: Icon(
+                          FontAwesomeIcons.check,
+                          color: constantColors.blueColor,
+                        ),
+                        onPressed: () {
+                          Provider
+                              .of<Authentication>(context,listen: false)
+                              .logIntoAccount(documentSnapshot.data()['userEmail'], documentSnapshot.data()['userPassword']).whenComplete(() {
+                              Navigator.pushReplacement(context,
+                                  PageTransition(
+                                      child: HomePage(),
+                                      type: PageTransitionType.rightToLeftWithFade)
+                              );
+                          });
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          FontAwesomeIcons.trash,
+                          color: constantColors.redColor,
+                        ),
+                        onPressed: () {
+                          Provider.of<FirebaseOperations>(context,listen: false).deleteUserData(documentSnapshot.data()['userUid']);
+                        },
+                      )
+                    ],
                   ),
-                  onPressed: () {},
                 ),
               );
             }).toList());
@@ -177,6 +207,7 @@ class LandingService with ChangeNotifier {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: TextField(
+                      obscureText: true,
                       controller: passwordController,
                       decoration: InputDecoration(
                         hintText: 'Enter password..',
@@ -194,7 +225,7 @@ class LandingService with ChangeNotifier {
                   FloatingActionButton(
                     backgroundColor: constantColors.blueColor,
                     onPressed: () {
-                      if (userNameController.text.isNotEmpty) {
+                      if (emailController.text.isNotEmpty) {
                         Provider.of<Authentication>(context, listen: false)
                             .logIntoAccount(
                                 emailController.text, passwordController.text)
@@ -206,7 +237,7 @@ class LandingService with ChangeNotifier {
                                   type: PageTransitionType.bottomToTop));
                         });
                       } else {
-                        warningText(context, "Fill all the data");
+                        warningText(context, "Wrong email or password");
                       }
                     },
                     child: Icon(
@@ -290,6 +321,7 @@ class LandingService with ChangeNotifier {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: TextField(
+                      obscureText: true,
                       controller: passwordController,
                       decoration: InputDecoration(
                         hintText: 'Enter password..',
@@ -315,6 +347,7 @@ class LandingService with ChangeNotifier {
                                   emailController.text, passwordController.text).whenComplete(() {
                                     print('Creating Collection');
                             Provider.of<FirebaseOperations>(context, listen: false).createUserCollection(context,{
+                              'userPassword':passwordController.text,
                               'userUid' : Provider.of<Authentication>(context, listen: false).getUserUid,
                               'userEmail': emailController.text,
                               'userName': userNameController.text,

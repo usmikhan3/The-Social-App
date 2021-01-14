@@ -9,7 +9,7 @@ import 'package:social_app/services/firebaseOperations.dart';
 class HomePageHelpers with ChangeNotifier{
   ConstantColors constantColors = ConstantColors();
 
-  Widget bottomNavBar(int index, PageController pageController,  BuildContext context){
+  Widget bottomNavBar( BuildContext context, int index, PageController pageController){
     return CustomNavigationBar(
       currentIndex: index,
         bubbleCurve: Curves.bounceIn,
@@ -32,8 +32,7 @@ class HomePageHelpers with ChangeNotifier{
             radius: 35,
             backgroundColor: constantColors.blueGreyColor,
             backgroundImage: NetworkImage(
-                Provider.of<FirebaseOperations>(context,listen: false).getInitUserImage
-            ),
+                Provider.of<FirebaseOperations>(context,listen: false).getInitUserImage ),
           )),
         ]
     );

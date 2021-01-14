@@ -8,7 +8,7 @@ import 'package:social_app/constants/Constantcolors.dart';
 import 'package:social_app/helpers/landingUtils.dart';
 import 'package:social_app/screens/homePage.dart';
 import 'package:social_app/services/authentication.dart';
-import 'package:social_app/services/landingServices.dart';
+import 'file:///F:/AndroidStudioProject/social_app/lib/helpers/landingServicesHelpers.dart';
 
 class LandingHelpers with ChangeNotifier {
   final ConstantColors constantColors = ConstantColors();

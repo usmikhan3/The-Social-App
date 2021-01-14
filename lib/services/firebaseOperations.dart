@@ -42,7 +42,7 @@ class FirebaseOperations with ChangeNotifier {
 
 
   Future initUserData(BuildContext context) async{
-    return FirebaseFirestore.instance.collection('users').doc(
+    return await FirebaseFirestore.instance.collection('users').doc(
       Provider.of<Authentication>(context, listen: false).getUserUid
     ).get().then((doc){
       print('Fetching user data: ');
@@ -52,15 +52,21 @@ class FirebaseOperations with ChangeNotifier {
       print(initUserName);
       print(initUserEmail);
       print(initUserImage);
-
       notifyListeners();
+
     });
+
   }
 
 Future uploadPostData(String postId, dynamic data)async{
-    return FirebaseFirestore.instance.collection("posts").doc(
+    return  FirebaseFirestore.instance.collection("posts").doc(
         postId
     ).set(data);
+
+}
+
+Future deleteUserData(String userUid)async{
+    return FirebaseFirestore.instance.collection('users').doc(userUid).delete();
 }
 
 }

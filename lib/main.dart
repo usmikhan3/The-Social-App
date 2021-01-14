@@ -12,7 +12,8 @@ import 'package:social_app/screens/splashScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:social_app/services/authentication.dart';
 import 'package:social_app/services/firebaseOperations.dart';
-import 'package:social_app/services/landingServices.dart';
+import 'package:social_app/utils/postOptions.dart';
+import 'file:///F:/AndroidStudioProject/social_app/lib/helpers/landingServicesHelpers.dart';
 import 'package:social_app/utils/uploadPost.dart';
 
 void main() async{
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_)=>ProfileHelpers()),
         ChangeNotifierProvider(create: (_)=>UploadPost()),
         ChangeNotifierProvider(create: (_)=>FeedHelpers()),
+        ChangeNotifierProvider(create: (_)=>PostFunctions()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:social_app/constants/Constantcolors.dart';
 import 'package:social_app/services/authentication.dart';
 import 'package:social_app/services/firebaseOperations.dart';
-import 'package:social_app/services/landingServices.dart';
+import 'file:///F:/AndroidStudioProject/social_app/lib/helpers/landingServicesHelpers.dart';
 
 class UploadPost with ChangeNotifier {
   ConstantColors constantColors = ConstantColors();
@@ -271,6 +271,7 @@ class UploadPost with ChangeNotifier {
                   onPressed: () async {
                     Provider.of<FirebaseOperations>(context, listen: false)
                         .uploadPostData(captionController.text, {
+                          'postImage':getUploadPostImageUrl,
                       'caption': captionController.text,
                       'userName': Provider.of<FirebaseOperations>(context,
                               listen: false)

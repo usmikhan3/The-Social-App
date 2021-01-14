@@ -39,6 +39,7 @@ dependencies:
   cloud_firestore:
   credit_card: ^0.1.8
   custom_navigation_bar:
+  lottie:
 
 
 
@@ -58,6 +59,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/animations/
 
 
 

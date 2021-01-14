@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
         },
       ),
       bottomNavigationBar: Provider.of<HomePageHelpers>(context, listen: false)
-          .bottomNavBar(pageIndex, homePageController, context),
+          .bottomNavBar( context, pageIndex, homePageController),
     );
   }
 }
